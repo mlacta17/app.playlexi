@@ -1,26 +1,36 @@
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
 
+
 export default function TutorialPage() {
-    return (
-      <div className="p-6">
-        <h1 className="text-2xl font-bold">Welcome to the Tutorial - working as button proxy</h1>
+  return (
+    <div className="min-h-screen p-6">
 
-        {/* Default */}
-        <Button>Default Button</Button>
+    <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">
+          Welcome to the Tutorial - working as button proxy
+          <ThemeToggle />
+         </h1>
 
-        <br/>
+    </div>
+
+
+      {/* Default */}
+      <div className="mt-4 space-y-3">
+        <Button>Button</Button>
 
         {/* Variants */}
-        <Button variant = "secondary">Secondary</Button>
         <br/>
-        <Button variant = "destructive">Destructive</Button>
+        <Button variant="secondary">Secondary</Button>
         <br/>
-        <Button variant = "ghost">Ghost</Button>
+        <Button variant="destructive">Destructive</Button>
         <br/>
-        <Button variant = "outline">Outline</Button>
+        <Button variant="ghost">Ghost</Button>
         <br/>
-        <Button variant = "link">Link</Button>
-
+        <Button variant="outline">Outline</Button>
+        <br/>
+        <Button variant="link">Link</Button>
       </div>
-    );
-  }
+    </div>
+  );
+}
