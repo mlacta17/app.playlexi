@@ -54,9 +54,9 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-row gap-5 w-full justify-end">
           <NavMenuItems />
-          <Link href="#">
-            <Button>Get started</Button>
-          </Link>
+          <Button asChild>
+            <Link href="#">Get started</Link>
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
