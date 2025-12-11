@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress"; 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CircleDashedIcon } from "lucide-react";
 
 export default function TutorialPage() {
@@ -46,6 +47,14 @@ export default function TutorialPage() {
           <TabsContent value="account">Make changes to your account here</TabsContent>
           <TabsContent value="password">Change your password here</TabsContent>
         </Tabs>
+
+        <br/>
+
+        {/* Avatars */}
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
 
 
       </div>
