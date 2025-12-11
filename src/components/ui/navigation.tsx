@@ -7,11 +7,10 @@ import { useState } from "react";
 import Link from "next/link";
 
 const MENU_ITEMS = [
-  { label: "Products", href: "#" },
-  { label: "Use cases", href: "#" },
-  { label: "Docs", href: "#" },
+  { label: "Play", href: "#" },
+  { label: "Leaderboard", href: "#" },
+  { label: "Learn", href: "#" },
   { label: "Pricing", href: "#" },
-  { label: "FAQ", href: "#" },
 ] as const;
 
 interface NavMenuItemsProps {
@@ -21,11 +20,11 @@ interface NavMenuItemsProps {
 const NavMenuItems = ({ className }: NavMenuItemsProps) => (
   <div className={`flex flex-col md:flex-row gap-1 ${className ?? ""}`}>
     {MENU_ITEMS.map(({ label, href }) => (
-      <Link key={label} href={href}>
-        <Button variant="ghost" className="w-full md:w-auto">
+      <Button key={label} variant="ghost" className="w-full md:w-auto rounded-md" asChild>
+        <Link href={href}>
           {label}
-        </Button>
-      </Link>
+        </Link>
+      </Button>
     ))}
   </div>
 );
@@ -36,9 +35,7 @@ export function Navbar() {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <nav className="bg-background px-6 py-2.5 md:p-3
-                    sticky top-0 border-b border-border
-                    w-full z-50">
+    <nav className="bg-background px-6 py-2.5 md:p-3 sticky top-0 border-b border-border w-full z-50">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6 m-auto">
         <div className="flex justify-between">
           <Link href="/">
