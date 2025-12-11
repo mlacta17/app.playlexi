@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress"; 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { CircleDashedIcon } from "lucide-react";
 
 export default function TutorialPage() {
@@ -55,6 +56,15 @@ export default function TutorialPage() {
           <AvatarImage src="https://github.com/shadcn.png" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
+
+        <br/>
+
+        {/*Badge component*/}
+        <Badge variant="default">Badge</Badge>
+        <Badge variant="outline">Badge</Badge>
+        <Badge variant="secondary">Badge</Badge>
+        <Badge variant="destructive">Badge</Badge>
+
 
 
       </div>
