@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress"; 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import Voice from "@/components/ui/voice"
 import { CircleDashedIcon } from "lucide-react";
 
@@ -101,6 +102,15 @@ export default function TutorialPage() {
         placeholderText="Recording..."
         definitionText="Custom definition here"
       />
+        <br/>
+
+        {/*Badge component*/}
+        <Badge variant="default">Badge</Badge>
+        <Badge variant="outline">Badge</Badge>
+        <Badge variant="secondary">Badge</Badge>
+        <Badge variant="destructive">Badge</Badge>
+
+
 
     </div>
   );
