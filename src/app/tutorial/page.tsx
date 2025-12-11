@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Progress } from "@/components/ui/progress"; 
 import { CircleDashedIcon } from "lucide-react";
 
 export default function TutorialPage() {
@@ -22,6 +24,16 @@ export default function TutorialPage() {
         <Button variant = "link">Link</Button>
         <br/>
         <Button variant = "default" size = "icon" ><CircleDashedIcon /></Button>
+        <br/>
+
+        {/*Input field*/}
+        <br/>
+        <Input type="test" placeholder="Input field" />
+        <br/>
+
+        <br/>
+        {/*Progress Bar */}
+        <Progress value={33} />
 
       </div>
     );
