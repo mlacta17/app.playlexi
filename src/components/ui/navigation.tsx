@@ -2,15 +2,15 @@
 
 import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
 const MENU_ITEMS = [
-  { label: "Play", href: "#" },
-  { label: "Leaderboard", href: "#" },
-  { label: "Learn", href: "#" },
-  { label: "Pricing", href: "#" },
+  { label: "Play", href: "#", badge: undefined },
+  { label: "Leaderboard", href: "#", badge: undefined },
+  { label: "Learn", href: "#", badge: "Pro" },
 ] as const;
 
 interface NavMenuItemsProps {
@@ -19,10 +19,13 @@ interface NavMenuItemsProps {
 
 const NavMenuItems = ({ className }: NavMenuItemsProps) => (
   <div className={`flex flex-col md:flex-row gap-1 ${className ?? ""}`}>
-    {MENU_ITEMS.map(({ label, href }) => (
+    {MENU_ITEMS.map(({ label, href, badge }) => (
       <Button key={label} variant="ghost" className="w-full md:w-auto rounded-lg" asChild>
         <Link href={href}>
-          {label}
+          <span className="flex items-center gap-2">
+            {label}
+            {badge && <Badge variant="secondary" className="text-xs">{badge}</Badge>}
+          </span>
         </Link>
       </Button>
     ))}
