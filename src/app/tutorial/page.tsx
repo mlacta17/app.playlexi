@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress"; 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Voice } from "@/components/voice"
 import { CircleDashedIcon } from "lucide-react";
 
 export default function TutorialPage() {
@@ -55,6 +56,9 @@ export default function TutorialPage() {
           <AvatarImage src="https://github.com/shadcn.png" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
+
+        <br/>
+        {/* Voice input */}
 
 
       </div>
