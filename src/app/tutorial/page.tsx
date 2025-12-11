@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress"; 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Voice } from "@/components/voice"
+import { Voice } from "@/components/ui/voice"
 import { CircleDashedIcon } from "lucide-react";
 
 export default function TutorialPage() {
@@ -60,6 +60,49 @@ export default function TutorialPage() {
         <br/>
         {/* Voice input */}
 
+export default function TutorialPage() {
+  const handleRecord = () => {
+    console.log("Record clicked")
+  }
+
+  const handleMessageSquare = () => {
+    console.log("Message clicked")
+  }
+
+  const handleBook = () => {
+    console.log("Dictionary clicked")
+  }
+
+  const handleVolume = () => {
+    console.log("Volume clicked")
+  }
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Welcome to the Tutorial</h1>
+
+      {/* Use the Voice component - with default props */}
+      <Voice />
+
+      <br />
+
+      {/* Use it again with custom props */}
+      <Voice
+        placeholderText="Say something..."
+        definitionText="Definition: a female child from birth to adulthood"
+        onRecord={handleRecord}
+        onMessageSquare={handleMessageSquare}
+        onBook={handleBook}
+        onVolume={handleVolume}
+      />
+
+      <br />
+
+      {/* Use it a third time with different props */}
+      <Voice
+        placeholderText="Recording..."
+        definitionText="Custom definition here"
+      />
 
       </div>
     );
