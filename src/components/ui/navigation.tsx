@@ -6,31 +6,44 @@ import { Badge } from "@/components/ui/badge";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const MENU_ITEMS = [
   { label: "Play", href: "#", badge: undefined },
   { label: "Leaderboard", href: "#", badge: undefined },
-  { label: "Learn", href: "#", badge: "Pro" },
+  { label: "Learn", href: "#", badge: "PRO" },
 ] as const;
 
 interface NavMenuItemsProps {
   className?: string;
 }
 
-const NavMenuItems = ({ className }: NavMenuItemsProps) => (
-  <div className={`flex flex-col md:flex-row gap-1 ${className ?? ""}`}>
-    {MENU_ITEMS.map(({ label, href, badge }) => (
-      <Button key={label} variant="ghost" className="w-full md:w-auto rounded-lg" asChild>
-        <Link href={href}>
-          <span className="flex items-center gap-2">
-            {label}
-            {badge && <Badge variant="secondary" className="text-xs">{badge}</Badge>}
-          </span>
-        </Link>
-      </Button>
-    ))}
-  </div>
-);
+const NavMenuItems = ({ className }: NavMenuItemsProps) => {
+  const pathname = usePathname();
+
+  return (
+    <div className={`flex flex-col md:flex-row gap-1 ${className ?? ""}`}>
+      {MENU_ITEMS.map(({ label, href, badge }) => {
+        const isActive = pathname === href;
+        return (
+          <Button
+            key={label}
+            variant="ghost"
+            className={`w-full md:w-auto rounded-lg ${!isActive ? "text-muted-foreground" : ""}`}
+            asChild
+          >
+            <Link href={href}>
+              <span className="flex items-center gap-2">
+                {label}
+                {badge && <Badge variant="default" className="text-xs">{badge}</Badge>}
+              </span>
+            </Link>
+          </Button>
+        );
+      })}
+    </div>
+  );
+};
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +68,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex flex-row gap-5 w-full justify-end">
+        <div className="hidden md:flex flex-row gap-5 w-full justify-between">
           <NavMenuItems />
           <Button asChild>
             <Link href="#">Get started</Link>
