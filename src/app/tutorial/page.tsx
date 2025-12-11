@@ -68,6 +68,14 @@ export default function TutorialPage() {
       </Tabs>
 
       <br/>
+
+      {/* Avatars */}
+       <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      
+      <br/>
       {/* Voice input */}
       <h2 className="text-xl font-bold mb-4">Voice Components</h2>
 
@@ -93,6 +101,7 @@ export default function TutorialPage() {
         placeholderText="Recording..."
         definitionText="Custom definition here"
       />
+
     </div>
   );
 }
