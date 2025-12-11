@@ -144,7 +144,7 @@
   --destructive: oklch(0.577 0.215 27.325);
   --border: oklch(0.922 0.000 0.000);
   --input: oklch(0.922 0.000 0.000);
-  --ring: oklch(0.715 0.000 0.000);
+  --ring: oklch(0.6231 0.188 259.81);
   --chart-1: oklch(0.646 0.194 41.116);
   --chart-2: oklch(0.600 0.104 184.704);
   --chart-3: oklch(0.398 0.066 227.392);
@@ -179,7 +179,7 @@
   --destructive: oklch(0.711 0.166 22.216);
   --border: oklch(1.000 0.000 0.000 / 0.1);
   --input: oklch(1.000 0.000 0.000 / 0.15);
-  --ring: oklch(0.556 0.000 0.000);
+  --ring: oklch(0.5461 0.2152 262.88);
   --chart-1: oklch(0.488 0.217 264.376);
   --chart-2: oklch(0.696 0.149 162.480);
   --chart-3: oklch(0.769 0.165 70.080);
@@ -198,7 +198,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
   body {
     @apply bg-background text-foreground;
@@ -244,6 +244,16 @@
   }
   .section-title-gap-sm {
     gap: 1rem;
+  }
+}
+
+@layer utilities {
+  .lexi-focus-ring {
+    @apply outline-none
+      focus-visible:ring-[2px]
+      focus-visible:ring-ring/100
+      focus-visible:ring-offset-2
+      focus-visible:ring-offset-background;
   }
 }
 

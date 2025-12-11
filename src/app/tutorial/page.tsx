@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { CircleDashedIcon } from "lucide-react";
 
 export default function TutorialPage() {
     return (
@@ -8,9 +9,8 @@ export default function TutorialPage() {
         {/* Default */}
         <Button>Default Button</Button>
 
-        <br/>
-
         {/* Variants */}
+        <br/>
         <Button variant = "secondary">Secondary</Button>
         <br/>
         <Button variant = "destructive">Destructive</Button>
@@ -20,6 +20,8 @@ export default function TutorialPage() {
         <Button variant = "outline">Outline</Button>
         <br/>
         <Button variant = "link">Link</Button>
+        <br/>
+        <Button variant = "default" size = "icon" ><CircleDashedIcon /></Button>
 
       </div>
     );
