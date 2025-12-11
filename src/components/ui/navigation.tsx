@@ -20,7 +20,7 @@ interface NavMenuItemsProps {
 const NavMenuItems = ({ className }: NavMenuItemsProps) => (
   <div className={`flex flex-col md:flex-row gap-1 ${className ?? ""}`}>
     {MENU_ITEMS.map(({ label, href }) => (
-      <Button key={label} variant="ghost" className="w-full md:w-auto rounded-md" asChild>
+      <Button key={label} variant="ghost" className="w-full md:w-auto rounded-lg" asChild>
         <Link href={href}>
           {label}
         </Link>
