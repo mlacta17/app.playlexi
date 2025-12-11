@@ -78,7 +78,6 @@ export default function TutorialPage() {
       
       <br/>
       {/* Voice input */}
-      <h2 className="text-xl font-bold mb-4">Voice Components</h2>
 
       {/* Use the Voice component - with default props */}
       <Voice />
