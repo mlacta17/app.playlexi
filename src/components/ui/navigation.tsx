@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo } from "@/components/logo";
+import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -30,16 +30,15 @@ const NavMenuItems = ({ className }: NavMenuItemsProps) => (
   </div>
 );
 
-export function LpNavbar4() {
+export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <nav className="bg-background md:rounded-xl md:shadow-lg px-6 py-2.5 md:p-3 
-                    sticky md:fixed md:top-16 border-b md:border border-border 
-                    md:left-1/2 md:-translate-x-1/2 md:max-w-3xl md:w-full 
-                    z-50 isolate">
+    <nav className="bg-background px-6 py-2.5 md:p-3
+                    sticky top-0 border-b border-border
+                    w-full z-50">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6 m-auto">
         <div className="flex justify-between">
           <Link href="/">
