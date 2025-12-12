@@ -4,7 +4,6 @@ import { useControllableState } from "@radix-ui/react-use-controllable-state";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import { useCallback } from "react";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 const themes = [
@@ -38,19 +37,17 @@ export const ThemeSwitcher = ({
   defaultValue = "system",
   className,
 }: ThemeSwitcherProps) => {
-  const { theme: currentTheme, setTheme: setNextTheme } = useTheme();
   const [theme, setTheme] = useControllableState({
     defaultProp: defaultValue,
-    prop: value ?? (currentTheme as "light" | "dark" | "system"),
+    prop: value,
     onChange,
   });
 
   const handleThemeClick = useCallback(
     (themeKey: "light" | "dark" | "system") => {
       setTheme(themeKey);
-      setNextTheme(themeKey);
     },
-    [setTheme, setNextTheme]
+    [setTheme]
   );
 
   return (

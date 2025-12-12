@@ -2,15 +2,33 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Progress } from "@/components/ui/progress"; 
+import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import Voice from "@/components/ui/voice"
 import { CircleDashedIcon } from "lucide-react";
 import { ThemeSwitcher } from "@/components/kibo-ui/theme-switch";
+import { useState } from "react";
 
 export default function TutorialPage() {
+  const [customTheme, setCustomTheme] = useState<"light" | "dark" | "system">("system");
+
+  const handleThemeChange = (newTheme: "light" | "dark" | "system") => {
+    setCustomTheme(newTheme);
+
+    // Apply theme to document
+    const root = document.documentElement;
+    root.classList.remove("light", "dark");
+
+    if (newTheme === "system") {
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.classList.add(systemTheme);
+    } else {
+      root.classList.add(newTheme);
+    }
+  };
+
   const handleRecord = () => {
     console.log("Record clicked")
   }
@@ -115,7 +133,13 @@ export default function TutorialPage() {
 
       {/* Theme Switcher */}
       <h2 className="text-xl font-semibold mb-2">Theme Switcher</h2>
-      <ThemeSwitcher />
+      <p className="text-sm text-muted-foreground mb-2">
+        Current theme: <strong>{customTheme}</strong>
+      </p>
+      <ThemeSwitcher
+        value={customTheme}
+        onChange={handleThemeChange}
+      />
 
     </div>
   );
