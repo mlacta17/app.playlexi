@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import Voice from "@/components/ui/voice"
 import { CircleDashedIcon } from "lucide-react";
+import { ThemeSwitcher } from "@/components/kibo-ui/theme-switch";
 
 export default function TutorialPage() {
   const handleRecord = () => {
@@ -109,7 +110,12 @@ export default function TutorialPage() {
         <Badge variant="secondary">Badge</Badge>
         <Badge variant="destructive">Badge</Badge>
 
+      <br/>
+      <br/>
 
+      {/* Theme Switcher */}
+      <h2 className="text-xl font-semibold mb-2">Theme Switcher</h2>
+      <ThemeSwitcher />
 
     </div>
   );
