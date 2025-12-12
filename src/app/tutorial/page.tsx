@@ -155,7 +155,6 @@ export default function TutorialPage() {
       <br/>
 
       {/* Dropzone */}
-      <h2 className="text-xl font-semibold mb-2">File Upload (Dropzone)</h2>
       <Dropzone
         accept={{ 'image/*': [] }}
         maxFiles={1}
@@ -173,7 +172,6 @@ export default function TutorialPage() {
       {/* Image Crop */}
       {uploadedFiles && uploadedFiles[0] && (
         <>
-          <h2 className="text-xl font-semibold mb-2">Image Cropping</h2>
           <ImageCrop file={uploadedFiles[0]} onCrop={handleCrop} aspect={1}>
             <div className="space-y-4">
               <ImageCropContent />
