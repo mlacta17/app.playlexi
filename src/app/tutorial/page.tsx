@@ -132,10 +132,6 @@ export default function TutorialPage() {
       <br/>
 
       {/* Theme Switcher */}
-      <h2 className="text-xl font-semibold mb-2">Theme Switcher</h2>
-      <p className="text-sm text-muted-foreground mb-2">
-        Current theme: <strong>{customTheme}</strong>
-      </p>
       <ThemeSwitcher
         value={customTheme}
         onChange={handleThemeChange}
