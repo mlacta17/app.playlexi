@@ -248,10 +248,21 @@
 }
 
 @layer utilities {
+  /* Default focus ring - used by most components */
   .lexi-focus-ring {
     @apply outline-none
       focus-visible:ring-[2px]
       focus-visible:ring-ring/100
+      focus-visible:ring-offset-2
+      focus-visible:ring-offset-background;
+  }
+
+  /* Destructive focus ring - used by destructive components */
+  .lexi-focus-ring-destructive {
+    @apply outline-none
+      focus-visible:ring-[2px]
+      focus-visible:ring-destructive
+      dark:focus-visible:ring-destructive
       focus-visible:ring-offset-2
       focus-visible:ring-offset-background;
   }
