@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import Voice from "@/components/ui/voice"
 import { CircleDashedIcon } from "lucide-react";
-import { ThemeSwitcher } from "@/components/kibo-ui/theme-switch";
+import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
 import { useState } from "react";
 
 export default function TutorialPage() {
