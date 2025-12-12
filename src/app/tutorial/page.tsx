@@ -9,10 +9,14 @@ import { Badge } from "@/components/ui/badge";
 import Voice from "@/components/ui/voice"
 import { CircleDashedIcon } from "lucide-react";
 import { ThemeSwitcher } from "@/components/kibo-ui/theme-switcher";
+import { Dropzone, DropzoneContent, DropzoneEmptyState } from "@/components/kibo-ui/dropzone";
+import { ImageCrop, ImageCropContent, ImageCropApply, ImageCropReset } from "@/components/kibo-ui/image-crop";
 import { useState } from "react";
 
 export default function TutorialPage() {
   const [customTheme, setCustomTheme] = useState<"light" | "dark" | "system">("system");
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>();
+  const [croppedImage, setCroppedImage] = useState<string>();
 
   const handleThemeChange = (newTheme: "light" | "dark" | "system") => {
     setCustomTheme(newTheme);
@@ -27,6 +31,16 @@ export default function TutorialPage() {
     } else {
       root.classList.add(newTheme);
     }
+  };
+
+  const handleFileDrop = (acceptedFiles: File[]) => {
+    setUploadedFiles(acceptedFiles);
+    console.log("Files uploaded:", acceptedFiles);
+  };
+
+  const handleCrop = (croppedImageData: string) => {
+    setCroppedImage(croppedImageData);
+    console.log("Image cropped!");
   };
 
   const handleRecord = () => {
@@ -136,6 +150,50 @@ export default function TutorialPage() {
         value={customTheme}
         onChange={handleThemeChange}
       />
+
+      <br/>
+      <br/>
+
+      {/* Dropzone */}
+      <h2 className="text-xl font-semibold mb-2">File Upload (Dropzone)</h2>
+      <Dropzone
+        accept={{ 'image/*': [] }}
+        maxFiles={1}
+        maxSize={5 * 1024 * 1024}
+        onDrop={handleFileDrop}
+        src={uploadedFiles}
+      >
+        <DropzoneEmptyState />
+        <DropzoneContent />
+      </Dropzone>
+
+      <br/>
+      <br/>
+
+      {/* Image Crop */}
+      {uploadedFiles && uploadedFiles[0] && (
+        <>
+          <h2 className="text-xl font-semibold mb-2">Image Cropping</h2>
+          <ImageCrop file={uploadedFiles[0]} onCrop={handleCrop} aspect={1}>
+            <div className="space-y-4">
+              <ImageCropContent />
+              <div className="flex gap-2">
+                <ImageCropApply />
+                <ImageCropReset />
+              </div>
+            </div>
+          </ImageCrop>
+        </>
+      )}
+
+      {/* Show cropped image */}
+      {croppedImage && (
+        <>
+          <br/>
+          <h2 className="text-xl font-semibold mb-2">Cropped Result</h2>
+          <img src={croppedImage} alt="Cropped" className="max-w-xs rounded-lg border" />
+        </>
+      )}
 
     </div>
   );
